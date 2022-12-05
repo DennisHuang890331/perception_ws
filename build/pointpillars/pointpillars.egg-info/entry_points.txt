@@ -1,0 +1,2 @@
+[console_scripts]
+pointpillars = pointpillars.pointpillars:main
