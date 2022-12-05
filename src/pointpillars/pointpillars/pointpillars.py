@@ -1,4 +1,3 @@
-# 
 from mmdet3d.apis import init_model
 import torch
 import time
@@ -6,7 +5,6 @@ import pickle
 import rclpy
 from rclpy.node import Node
 from visualization_msgs.msg import Marker, MarkerArray
-from builtin_interfaces.msg import Duration
 from sensor_msgs.msg import PointCloud2
 import pypcd
 import numpy as np
@@ -85,12 +83,12 @@ def model_generater(checkpointName):
     dic = {
         'hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class': {
             'config': '/home/dennis/mmdetection3d/configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py',
-            'checkpoint': '/home/dennis/mmdetection3d/checkpoints/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth',
+            'checkpoint': '/home/dennis/ros2_ws/src/pointpillars/pointpillars/checkpoint/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth',
             'prototypeFile': '/home/dennis/perception_wc/src/pointpillars/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class-prototype.p',
         },
         'hv_pointpillars_secfpn_6x8_160e_kitti-3d-car': {
             'config': '/home/dennis/mmdetection3d/configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car.py',
-            'checkpoint': '/home/dennis/mmdetection3d/checkpoints/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car_20220331_134606-d42d15ed.pth',
+            'checkpoint': '/home/dennis/ros2_ws/src/pointpillars/pointpillars/checkpoint/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car_20220331_134606-d42d15ed.pth',
             'prototypeFile': '/home/dennis/perception_wc/src/pointpillars/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car-prototype.p',
         }
     }
@@ -107,7 +105,7 @@ class subscriber(Node):
         super().__init__('subscriber')
         self.proto = "/home/dennis/ros2_ws/src/pointpillars/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class-prototype.p"
         checkpointName = 'hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class'
-        self.threshhold = args.threshhold
+        self.threshhold = args.t
         self.model = model_generater(checkpointName)
         self.declare_parameter("threshold",0.5)
         self.subscription = self.create_subscription(PointCloud2,'carla/ego_vehicle/lidar',self.callback,1)
@@ -130,9 +128,6 @@ class subscriber(Node):
         res = Inferencemodel(pcd_arr, self.model, self.proto)
         box_3d, scores_3d, labels_3d = Scores_Filter(res, self.threshhold)
         print("scores: ", scores_3d)
-        """
-        TODO pointpillars to marker
-        """
         for i in range(len(box_3d)):
             marker = Marker()
             marker.header = pointcloud2.header
@@ -166,7 +161,7 @@ class subscriber(Node):
 
 def main(args=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("-t","--threshhold",help="threshold of pointpillars",type=float)
+    parser.add_argument("-t",help="threshold of pointpillars",type=float)
     parser = parser.parse_args()
     rclpy.init(args=args)
     node = subscriber(parser)

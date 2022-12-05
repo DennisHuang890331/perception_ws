@@ -1,0 +1,26 @@
+[0.594s] Invoking command in '/home/dennis/ros2_ws/src/pointpillars': PYTHONPATH=/home/dennis/ros2_ws/install/pointpillars/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/pointpillars build --build-base /home/dennis/ros2_ws/build/pointpillars/build install --prefix /home/dennis/ros2_ws/install/pointpillars --record /home/dennis/ros2_ws/build/pointpillars/install.log --single-version-externally-managed
+[0.811s] running egg_info
+[0.825s] writing ../../build/pointpillars/pointpillars.egg-info/PKG-INFO
+[0.825s] writing dependency_links to ../../build/pointpillars/pointpillars.egg-info/dependency_links.txt
+[0.825s] writing entry points to ../../build/pointpillars/pointpillars.egg-info/entry_points.txt
+[0.826s] writing requirements to ../../build/pointpillars/pointpillars.egg-info/requires.txt
+[0.826s] writing top-level names to ../../build/pointpillars/pointpillars.egg-info/top_level.txt
+[0.841s] reading manifest file '../../build/pointpillars/pointpillars.egg-info/SOURCES.txt'
+[0.842s] writing manifest file '../../build/pointpillars/pointpillars.egg-info/SOURCES.txt'
+[0.842s] running build
+[0.842s] running build_py
+[0.842s] copying pointpillars/pointpillars.py -> /home/dennis/ros2_ws/build/pointpillars/build/lib/pointpillars
+[0.843s] running install
+[0.843s] /home/dennis/.local/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.843s]   warnings.warn(
+[0.845s] running install_lib
+[0.853s] copying /home/dennis/ros2_ws/build/pointpillars/build/lib/pointpillars/pointpillars.py -> /home/dennis/ros2_ws/install/pointpillars/lib/python3.8/site-packages/pointpillars
+[0.853s] byte-compiling /home/dennis/ros2_ws/install/pointpillars/lib/python3.8/site-packages/pointpillars/pointpillars.py to pointpillars.cpython-38.pyc
+[0.854s] running install_data
+[0.861s] running install_egg_info
+[0.869s] removing '/home/dennis/ros2_ws/install/pointpillars/lib/python3.8/site-packages/pointpillars-0.0.0-py3.8.egg-info' (and everything under it)
+[0.869s] Copying ../../build/pointpillars/pointpillars.egg-info to /home/dennis/ros2_ws/install/pointpillars/lib/python3.8/site-packages/pointpillars-0.0.0-py3.8.egg-info
+[0.870s] running install_scripts
+[0.900s] Installing pointpillars script to /home/dennis/ros2_ws/install/pointpillars/lib/pointpillars
+[0.900s] writing list of installed files to '/home/dennis/ros2_ws/build/pointpillars/install.log'
+[0.924s] Invoked command in '/home/dennis/ros2_ws/src/pointpillars' returned '0': PYTHONPATH=/home/dennis/ros2_ws/install/pointpillars/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/pointpillars build --build-base /home/dennis/ros2_ws/build/pointpillars/build install --prefix /home/dennis/ros2_ws/install/pointpillars --record /home/dennis/ros2_ws/build/pointpillars/install.log --single-version-externally-managed
