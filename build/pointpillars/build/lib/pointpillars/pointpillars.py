@@ -9,8 +9,7 @@ from sensor_msgs.msg import PointCloud2
 import pypcd
 import numpy as np
 import argparse
-import json
-import os
+
 def timer(func):
     # This function shows the execution time of 
     # the function object passed
@@ -83,14 +82,14 @@ def Inferencemodel(pointcloud, model, prototypeFile):
 def model_generater(checkpointName):
     dic = {
         'hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class': {
-            'config': '/home/dennis/mmdetection3d/configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py',
-            'checkpoint': '/home/dennis/ros2_ws/src/pointpillars/pointpillars/checkpoint/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth',
-            'prototypeFile': '/home/dennis/perception_wc/src/pointpillars/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class-prototype.p',
+            'config': '/home/ivlab/mmdetection3d/configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py',
+            'checkpoint': '/home/ivlab/perception_ws/src/pointpillars/pointpillars/checkpoint/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth',
+            'prototypeFile': '/home/ivlab/perception_wc/src/pointpillars/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class-prototype.p',
         },
         'hv_pointpillars_secfpn_6x8_160e_kitti-3d-car': {
-            'config': '/home/dennis/mmdetection3d/configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car.py',
-            'checkpoint': '/home/dennis/ros2_ws/src/pointpillars/pointpillars/checkpoint/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car_20220331_134606-d42d15ed.pth',
-            'prototypeFile': '/home/dennis/perception_wc/src/pointpillars/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car-prototype.p',
+            'config': '/home/ivlab/mmdetection3d/configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car.py',
+            'checkpoint': '//home/ivlab/perception_ws/src/pointpillars/pointpillars/checkpoint/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car_20220331_134606-d42d15ed.pth',
+            'prototypeFile': '/home/ivlab/perception_wc/src/pointpillars/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car-prototype.p',
         }
     }
     checkpointName = 'hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class'
@@ -161,9 +160,16 @@ class subscriber(Node):
         self.publisher.publish(arr)
 
 def main(args=None):
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='ros2 galactic package for pointpillars')
     parser.add_argument("-t",help="threshold of pointpillars",type=float)
     parser = parser.parse_args()
+    if parser.t == None:
+        import warnings
+        warnings.warn(
+            'Error: No pointpillars model threshold \n'
+            'Make sure enter a currecnt threshold (float)\n'
+            'ros2 run pointpillars pointpillars -t <threshold>')
+        exit()
     rclpy.init(args=args)
     node = subscriber(parser)
     rclpy.spin(node)

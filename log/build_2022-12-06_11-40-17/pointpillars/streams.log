@@ -1,0 +1,26 @@
+[1.282s] Invoking command in '/home/ivlab/perception_ws/src/pointpillars': PYTHONPATH=/home/ivlab/perception_ws/build/pointpillars/prefix_override:/home/ivlab/perception_ws/install/pointpillars/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/pointpillars build --build-base /home/ivlab/perception_ws/build/pointpillars/build install --record /home/ivlab/perception_ws/build/pointpillars/install.log --single-version-externally-managed
+[1.750s] running egg_info
+[1.788s] writing ../../build/pointpillars/pointpillars.egg-info/PKG-INFO
+[1.788s] writing dependency_links to ../../build/pointpillars/pointpillars.egg-info/dependency_links.txt
+[1.789s] writing entry points to ../../build/pointpillars/pointpillars.egg-info/entry_points.txt
+[1.789s] writing requirements to ../../build/pointpillars/pointpillars.egg-info/requires.txt
+[1.789s] writing top-level names to ../../build/pointpillars/pointpillars.egg-info/top_level.txt
+[1.836s] reading manifest file '../../build/pointpillars/pointpillars.egg-info/SOURCES.txt'
+[1.837s] writing manifest file '../../build/pointpillars/pointpillars.egg-info/SOURCES.txt'
+[1.837s] running build
+[1.837s] running build_py
+[1.837s] copying pointpillars/pointpillars.py -> /home/ivlab/perception_ws/build/pointpillars/build/lib/pointpillars
+[1.838s] running install
+[1.838s] /home/ivlab/.local/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.838s]   warnings.warn(
+[1.850s] running install_lib
+[1.868s] copying /home/ivlab/perception_ws/build/pointpillars/build/lib/pointpillars/pointpillars.py -> /home/ivlab/perception_ws/install/pointpillars/lib/python3.8/site-packages/pointpillars
+[1.869s] byte-compiling /home/ivlab/perception_ws/install/pointpillars/lib/python3.8/site-packages/pointpillars/pointpillars.py to pointpillars.cpython-38.pyc
+[1.870s] running install_data
+[1.888s] running install_egg_info
+[1.907s] removing '/home/ivlab/perception_ws/install/pointpillars/lib/python3.8/site-packages/pointpillars-0.0.0-py3.8.egg-info' (and everything under it)
+[1.907s] Copying ../../build/pointpillars/pointpillars.egg-info to /home/ivlab/perception_ws/install/pointpillars/lib/python3.8/site-packages/pointpillars-0.0.0-py3.8.egg-info
+[1.909s] running install_scripts
+[2.007s] Installing pointpillars script to /home/ivlab/perception_ws/install/pointpillars/lib/pointpillars
+[2.008s] writing list of installed files to '/home/ivlab/perception_ws/build/pointpillars/install.log'
+[2.044s] Invoked command in '/home/ivlab/perception_ws/src/pointpillars' returned '0': PYTHONPATH=/home/ivlab/perception_ws/build/pointpillars/prefix_override:/home/ivlab/perception_ws/install/pointpillars/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/pointpillars build --build-base /home/ivlab/perception_ws/build/pointpillars/build install --record /home/ivlab/perception_ws/build/pointpillars/install.log --single-version-externally-managed
